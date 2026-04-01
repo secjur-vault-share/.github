@@ -8,6 +8,7 @@ at different permission levels, and generate time-limited public links.
 
 | Repository | Description |
 |---|---|
+| [vaultshare-docs](https://github.com/secjur-vault-share/vaultshare-docs) | System architecture, design decisions, and agent playbooks |
 | [vaultshare-infra](https://github.com/secjur-vault-share/vaultshare-infra) | Docker Compose orchestration — **start here** |
 | [vaultshare-api](https://github.com/secjur-vault-share/vaultshare-api) | Django 6 + DRF backend |
 | [vaultshare-frontend](https://github.com/secjur-vault-share/vaultshare-frontend) | Vue 3 + TypeScript frontend |
