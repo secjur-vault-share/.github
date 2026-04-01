@@ -10,7 +10,7 @@ into folders, and share them with other users at granular permission levels.
 - [x] **Phase 2 — Accounts & Storage Abstraction**: JWT auth, custom User model, `StorageBackend` ABC with `LocalDiskBackend` (full) and `S3Backend` (stub)
 - [x] **Phase 3 — Core Files & Audit Trail**: Upload, download, soft delete, append-only `AuditLog` with model-level immutability, first acceptance tests
 - [x] **Phase 4 — Sharing & Permissions**: File and folder sharing with three permission levels (Viewer, Editor, Owner), permission inheritance, share revocation
-- [ ] **Phase 5 — File Versioning**: Version listing and per-version download endpoints (note: the versioning *model and service logic* already exist — uploading a same-name file creates a new version)
+- [x] **Phase 5 — File Versioning**: Version listing and per-version download endpoints. Same-name upload in shared folders creates new versions for Editors.
 - [ ] **Phase 6 — Folders & ZIP Download**: Folder CRUD, nested hierarchy navigation, streaming ZIP via `stream-zip`
 - [ ] **Phase 7 — Public Links & Celery Cleanup**: Time-limited shareable links, expiry enforcement, scheduled cleanup task
 - [ ] **Phase 8 — Frontend**: Vue 3 + TypeScript SPA (scaffolded, not yet implemented)
@@ -79,9 +79,6 @@ See [DESIGN_DECISIONS.md](https://github.com/secjur-vault-share/vaultshare-docs/
 
 ## What I'd Do Next
 
-- **Phase 5 — Version history endpoints**: Wire up `GET /files/{id}/versions/` and
-  `GET /files/{id}/versions/{n}/download/` using the existing `FileVersion` model and
-  `StorageBackend.stream()`. The service logic already creates versions on same-name upload.
 - **Phase 6 — Folder tree & ZIP**: Implement `FolderService.walk_tree()` as a generator
   and stream ZIP responses via `stream-zip`. Refactor from adjacency list to materialized
   paths (`django-treebeard`) if folder depth > 10 becomes a performance bottleneck.
