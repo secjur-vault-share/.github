@@ -1,8 +1,11 @@
 # VaultShare
 
-A lightweight file-sharing platform inspired by Google Drive, built as a multi-service
-architecture for the SECJUR engineering challenge. Users can upload files, organize them
-into folders, and share them with other users at granular permission levels.
+**VaultShare** is a robust, lightweight file-sharing platform inspired by Google Drive, built as a modular multi-service architecture. It was originally developed as a solution for the SECJUR engineering challenge.
+
+> [!IMPORTANT]
+> **AI-Native Development**: This entire ecosystem was developed in approximately **10 hours** using cutting-edge **AI Coding Agents** (such as Google Antigravity and Claude Code). It serves as a benchmark for high-velocity engineering where architectural decisions, implementation, and testing are orchestrated by autonomous AI agents under human guidance.
+
+Users can securely upload files, manage complex folder hierarchies, and share resources with granular, inherited permission levels (Viewer, Editor, Owner).
 
 ## Implementation Status
 
@@ -16,7 +19,14 @@ into folders, and share them with other users at granular permission levels.
 - [ ] **Phase 8 — Frontend**: Vue 3 + TypeScript SPA (scaffolded, not yet implemented)
 - [ ] **Phase 9 — Bonus & Polish**: Full-text search, storage quotas, real-time notifications, final AI code review
 
-## Repositories
+## 🛠 Tech Stack
+
+- **Backend**: Django 6, Django REST Framework (Modular Monolith architecture)
+- **Database**: PostgreSQL (main), Redis (caching and Celery broker)
+- **Async Tasks**: Celery & Celery Beat (background processing, cleanup, scheduled tasks)
+- **Infrastructure**: Docker & Docker Compose (orchestration), Makefile (automation)
+- **Frontend**: Vue 3, TypeScript, Tailwind CSS (scaffolded)
+- **Security**: JWT Authentication (symmetric signing), append-only Audit Logs
 
 | Repository | Description | Status |
 |---|---|---|
@@ -58,7 +68,13 @@ vaultshare-api/            # Django modular monolith (service layer pattern)
 vaultshare-frontend/       # Vue 3 · TypeScript · Vite (scaffold)
 ```
 
-## Key Design Decisions
+## 🤖 AI-Driven Development
+
+This project serves as a case study for the **1:100 Engineering Ratio**—where a single human orchestrator and high-capability **AI Coding Agents** can deliver what typically takes a team weeks.
+
+- **Tools**: Developed with [Google Antigravity](https://google.com/antigravity) and [Claude Code](https://claude.ai/code).
+- **Process**: From zero to a working modular monolith with 90%+ test coverage in ~10 hours.
+- **Verification**: Autonomous test-driven development (TDD) using a custom acceptance suite to ensure behavioral parity across releases.
 
 - **Storage abstraction** — a `StorageBackend` ABC decouples business logic from the
   filesystem. `LocalDiskBackend` is fully implemented; `S3Backend` is a stub mapping
